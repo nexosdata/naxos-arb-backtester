@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "naxos-arb-backtester"
+version = "1.0.0"
+description = "Institutional Discrete Event-Driven Prediction Market Arbitrage Backtester"
+readme = "README.md"
+authors = [{ name = "NaxosData Quant Engineering", email = "hello@naxosdata.com" }]
+license = { text = "MIT" }
+keywords = ["prediction-markets", "arbitrage", "backtesting", "polymarket", "kalshi", "hft", "orderbook"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "naxosdata>=1.4.0",
+]
+
+[project.optional-dependencies]
+analysis = [
+    "pandas>=1.5.0",
+    "pyarrow>=10.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.20.0",
+]
+
+[project.urls]
+Homepage = "https://naxosdata.com"
+Documentation = "https://naxosdata.com/docs"
+Repository = "https://github.com/naxosdata/naxos-arb-backtester"

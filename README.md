@@ -16,10 +16,10 @@ Standard equities and crypto backtesters fail on prediction markets because they
 In cross-venue arbitrage, fills are never instantaneous. An arbitrage bot observing a mispriced spread must undergo four discrete stages:
 
 $$\begin{aligned}
-t_{\text{bot}} &= t_{\text{exchange}} + \text{feed\_arrival\_ms} \quad (35\text{ms} \pm 15\text{ms}) \\
-t_{\text{leg1}} &= t_{\text{bot}} + \text{compute\_ms} + \text{leg1\_order\_latency\_ms} \\
-t_{\text{ack}} &= t_{\text{leg1}} + \text{leg1\_ack\_latency\_ms} \\
-t_{\text{leg2}} &= t_{\text{ack}} + \text{leg2\_order\_latency\_ms}
+t_{\text{bot}} &= t_{\text{exchange}} + \Delta t_{\text{feed}} \quad (35\text{ms} \pm 15\text{ms}) \\
+t_{\text{leg1}} &= t_{\text{bot}} + \Delta t_{\text{compute}} + \Delta t_{\text{order, leg1}} \\
+t_{\text{ack}} &= t_{\text{leg1}} + \Delta t_{\text{ack, leg1}} \\
+t_{\text{leg2}} &= t_{\text{ack}} + \Delta t_{\text{order, leg2}}
 \end{aligned}$$
 
 During the round-trip flight window between Leg 1 execution and Leg 2 matching ($t_{\text{leg2}} - t_{\text{leg1}}$), rival market makers may lift the resting quote, leaving Leg 2 exposed.
